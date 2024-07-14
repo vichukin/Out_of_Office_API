@@ -1,0 +1,6 @@
+@Out_of_Office_API_HostAddress = http://localhost:5186
+
+GET {{Out_of_Office_API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
