@@ -12,6 +12,7 @@ namespace Out_of_Office_API.DTOs
         public PeoplePartnerDTO? PeoplePartner { get; set; }
         public int OutOfOfficeBalance { get; set; }
         public string? PhotoPath { get; set; }
+        public bool Status { get; set; } = true;
 
         public List<LeaveRequestDTO>? LeaveRequests { get; set; }
         public List<ProjectDTO>? Projects { get; set; }

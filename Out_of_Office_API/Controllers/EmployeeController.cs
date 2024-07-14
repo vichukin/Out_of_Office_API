@@ -67,6 +67,16 @@ namespace Out_of_Office_API.Controllers
             var hrManagers = await context.Employees.Where(t => t.Position == Position.HR_Manager).Select(t => mapper.Map<EmployeeDTO>(t)).ToListAsync();
             return Ok(hrManagers);
         }
+        [HttpPatch("Deactivate/${id}")]
+        public async Task<IActionResult> DeactivateEmployee(string id)
+        {
+            var emp = await context.Employees.FirstOrDefaultAsync(t => t.Id == id);
+            if (emp == null) return NotFound();
+            emp.Status = false;
+            context.Employees.Update(emp);
+            await context.SaveChangesAsync();
+            return Ok();
+        }
         // GET api/<EmployeeController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(string id)
