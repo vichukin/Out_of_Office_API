@@ -9,6 +9,10 @@
     },
     "apis1": {
       "type": "apis"
+    },
+    "storage2": {
+      "type": "storage",
+      "connectionId": "blob:blob"
     }
   }
 }

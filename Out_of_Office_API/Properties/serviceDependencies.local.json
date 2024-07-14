@@ -7,6 +7,13 @@
       "secretStore": "LocalSecretsFile",
       "type": "storage.emulator",
       "connectionId": "blob"
+    },
+    "storage2": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/eastus/connectors/blobblob_C65B6A3FFA",
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/outofoficestorage",
+      "type": "storage.azure",
+      "connectionId": "blob:blob"
     }
   }
 }

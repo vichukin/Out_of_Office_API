@@ -34,7 +34,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<CompanyDBContext>(options =>
 {
-    options.UseSqlServer("workstation id=CompanyDB.mssql.somee.com;packet size=4096;user id=TimeAccountForDB_SQLLogin_1;pwd=h8p5wznbbf;data source=CompanyDB.mssql.somee.com;persist security info=False;initial catalog=CompanyDB;TrustServerCertificate=True");
+    options.UseSqlServer(builder.Configuration["CompanyDB"]);
 });
 builder.Services.AddIdentityApiEndpoints<Employee>().AddRoles<IdentityRole>().AddEntityFrameworkStores<CompanyDBContext>();
 
@@ -57,8 +57,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 builder.Services.AddAzureClients(clientBuilder =>
 {
-    clientBuilder.AddBlobServiceClient(builder.Configuration["blob:blob"]!, preferMsi: true);
-    clientBuilder.AddQueueServiceClient(builder.Configuration["blob:queue"]!, preferMsi: true);
+    clientBuilder.AddBlobServiceClient(builder.Configuration["blob"]!, preferMsi: true);
+    clientBuilder.AddQueueServiceClient(builder.Configuration["blob"]!, preferMsi: true);
 });
 
 
